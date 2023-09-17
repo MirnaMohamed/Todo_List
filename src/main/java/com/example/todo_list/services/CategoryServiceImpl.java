@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService{
     public CategoryDto get(int id) {
         Optional<Category> category = categoryRepository.findById(id);
         CategoryDto categoryDto;
-        if(category != null){
+        if(category.isPresent()){
              categoryDto= categoryMapper.ToCategoryDto(category.get());
              return categoryDto;}
         else throw new NotFoundException("Category Not Found");
